@@ -57,21 +57,22 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc, query, orderBy, limit, getDocs } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "API_KEY",
-  authDomain: "PROJECT_ID.firebaseapp.com",
-  projectId: "PROJECT_ID",
-  storageBucket: "PROJECT_ID.appspot.com",
-  messagingSenderId: "SENDER_ID",
-  appId: "APP_ID"
+  apiKey: process.env.FIREBASE_API_KEY || "API_KEY",
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN || "PROJECT_ID.firebaseapp.com",
+  projectId: process.env.FIREBASE_PROJECT_ID || "PROJECT_ID",
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET || "PROJECT_ID.appspot.com",
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID || "SENDER_ID",
+  appId: process.env.FIREBASE_APP_ID || "APP_ID"
 };
 
 let db: any = null;
 try {
-  if (firebaseConfig.projectId !== "PROJECT_ID") {
+  if (firebaseConfig.projectId && firebaseConfig.projectId !== "PROJECT_ID") {
     const app = initializeApp(firebaseConfig);
     db = getFirestore(app);
   }
 } catch (e) {
+  console.error("Firebase initialization failed:", e);
 }
 
 // B. SOUND ENGINE
