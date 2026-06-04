@@ -4521,19 +4521,19 @@ export default function App() {
        )}
 
        {modal.type === 'welcome' && (
-           <div className="absolute inset-0 flex flex-col items-center justify-center z-50 overflow-hidden bg-transparent">
-               <div className="crawl-container h-[70%]">
-                  <div className="crawl-content space-y-12">
-                     <h1 className="text-7xl md:text-9xl font-scifi text-white font-black text-center tracking-[0.2em] mb-20 uppercase whitespace-nowrap">$TAR BUCKS</h1>
-                     <div className="text-yellow-500 text-4xl md:text-6xl font-bold leading-relaxed font-mono">
-                        <p className="mb-10">Welcome, Captain.</p>
-                        <p className="mb-10">Your former business partner has passed, leaving his debts... and his dreams... to you.</p>
-                        <p className="mb-10">We have secured a <StarCoin size={48}/> 30,000 loan to buy out his Widow and reinstate our trading license, but your ship has been stripped down by mutiny.</p>
-                        <p className="mb-10">Prepare to board the RR Firefox 22 RustyRedeemer: She’s 60% oxidation and 40% hope, but she’ll get your cargo across the sector if you treat her right.</p>
+           <div className="absolute inset-0 flex flex-col items-center justify-center z-50 overflow-hidden bg-black/60 backdrop-blur-sm">
+               <div className="crawl-container h-full w-full">
+                  <div className="crawl-content space-y-12 px-4 md:px-20">
+                     <h1 className="text-6xl md:text-9xl font-scifi text-white font-black text-center tracking-[0.2em] mb-20 uppercase whitespace-nowrap">$TAR BUCKS</h1>
+                     <div className="text-yellow-500 text-3xl md:text-5xl font-bold leading-relaxed font-mono text-center">
+                        <p className="mb-12">Welcome, Captain.</p>
+                        <p className="mb-12">Your former business partner has passed, leaving his debts... and his dreams... to you.</p>
+                        <p className="mb-12">We have secured a <StarCoin size={48}/> 30,000 loan to buy out his Widow and reinstate our trading license, but your ship has been stripped down by mutiny.</p>
+                        <p className="mb-12">Prepare to board the RR Firefox 22 RustyRedeemer: She’s 60% oxidation and 40% hope, but she’ll get your cargo across the sector if you treat her right.</p>
                      </div>
                   </div>
                </div>
-               <div className="h-[30%] w-full flex flex-col items-center justify-center bg-gradient-to-t from-black via-black/50 to-transparent z-[100]">
+               <div className="absolute bottom-0 left-0 right-0 h-[40%] w-full flex flex-col items-center justify-center bg-gradient-to-t from-black via-black/80 to-transparent z-[100] pb-10">
                   <div className="flex justify-center gap-8 px-4 w-full max-w-4xl">
                     <button onClick={()=>{setModal({type:'none', data:null}); startNewGame();}} className="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-6 px-4 md:px-16 rounded-xl text-2xl md:text-4xl shadow-[0_0_40px_rgba(16,185,129,0.5)] action-btn border-4 border-emerald-400 uppercase tracking-widest">Board Ship</button>
                   </div>
