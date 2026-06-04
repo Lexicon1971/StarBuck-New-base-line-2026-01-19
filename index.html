@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>STAR BUCKS - Jules (v10.2.2)</title>
+    <title>STAR BUCKS - Jules (v10.3.5)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
@@ -31,16 +31,6 @@
           overflow: hidden; 
       }
       
-      #starfield {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          z-index: -50;
-          pointer-events: none;
-      }
-
       .text-neon {
           color: var(--color-secondary);
           text-shadow: 0 0 5px #fcd34d99, 0 0 10px #fcd34d66;
@@ -62,12 +52,12 @@
         background-image:
             linear-gradient(rgba(0, 255, 0, 0.05) 1px, transparent 1px);
         background-size: 100% 2px;
-        box-shadow: 0 0 10px #0d2a1a, inset 0 0 10px #0d2a1a;
-              0 0 5px rgba(16, 185, 129, 0.2),
-              inset 0 0 20px rgba(0, 0, 0, 0.5),
-              2px 4px 10px rgba(0,0,0,0.8);
-          position: relative;
-          backdrop-filter: blur(4px);
+        box-shadow: 0 0 10px #0d2a1a, inset 0 0 10px #0d2a1a,
+                    0 0 5px rgba(16, 185, 129, 0.2),
+                    inset 0 0 20px rgba(0, 0, 0, 0.5),
+                    2px 4px 10px rgba(0,0,0,0.8);
+        position: relative;
+        backdrop-filter: blur(4px);
       }
       
       .sci-fi-box::after {
@@ -123,7 +113,7 @@
         position: relative;
         height: 100%;
         width: 100%;
-        perspective: 500px;
+        perspective: 350px;
         overflow: hidden;
       }
 
@@ -131,9 +121,9 @@
         position: absolute;
         top: 100%;
         width: 90%;
-        text-align: justify;
+        text-align: center;
         transform-origin: 50% 100%;
-        animation: crawl-anim 200s linear infinite;
+        animation: crawl-anim 45s linear infinite;
         transform: rotateX(25deg);
         text-shadow: 0 0 5px #000, 0 0 10px #000, 0 0 15px #000;
       }
@@ -144,7 +134,7 @@
           transform: rotateX(25deg) translateY(0);
           opacity: 1;
         }
-        90% {
+        85% {
           opacity: 1;
         }
         100% {
@@ -198,36 +188,10 @@
   }
 }
 </script>
-  <link rel="stylesheet" href="/index.css">
   <link rel="stylesheet" href="starfield.css">
 </head>
   <body>
-    <div id="starfield"></div>
     <div id="root"></div>
     <script type="module" src="index.tsx"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const starfield = document.getElementById('starfield');
-        if (!starfield) {
-            return;
-        }
-        const numStars = Math.floor((window.innerWidth * window.innerHeight) / 1200);
-
-        for (let i = 0; i < numStars; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            const size = Math.random() < 0.9 ? Math.random() * 1.2 : Math.random() * 2.5;
-            star.style.width = `${size}px`;
-            star.style.height = `${size}px`;
-            star.style.top = `${Math.random() * 100}%`;
-            star.style.left = `${Math.random() * 100}%`;
-            const duration = 2 + Math.random() * 3;
-            const delay = Math.random() * 5;
-            star.style.animationDuration = `${duration}s`;
-            star.style.animationDelay = `${delay}s`;
-            starfield.appendChild(star);
-        }
-      });
-    </script>
 </body>
 </html>
